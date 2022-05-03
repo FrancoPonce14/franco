@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hibernate-mapping>
+
+<class name="datos.Espacio" table="espacio">
+    <id column="idEspacio" name="id">
+      <generator class="identity"/>
+    </id>
+    <property column="fecha" name="fecha" type="LocalDate"/>
+    <property column="turno" name="turno" type="char"/>
+    <property column="libre" name="libre" type="boolean"/>
+
+ <many-to-one name="Aula" class="datos.Aula" column="idAula" not-null="true"/>
+    
+  </class>    
+</hibernate-mapping>

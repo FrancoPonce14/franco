@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+<class name="datos.Edificio" table="Edificio">
+    <id column="idEdificio" name="id">
+      <generator class="identity"/>
+    </id>
+     <property column="edificio" name="edificio" type="string"/>
+     
+        <set name="aulas" table="Aula" order-by="idAula asc" inverse="true" lazy="true" fetch="select">
+        <key column="idEdificio" not-null="true"  />
+        <one-to-many class="datos.Aula" />
+    </set>
+     
+</class>    
+</hibernate-mapping>

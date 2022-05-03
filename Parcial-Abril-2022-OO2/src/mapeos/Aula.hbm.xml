@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+	<class name="datos.Aula" table="Aula">
+		<id column="idAula" name="id">
+			<generator class="identity" />
+		</id>
+		<property name="numero" column="numero" type="int" />
+
+		<many-to-one name="edificio" class="datos.Edificio"
+			column="idEdificio" not-null="true" />
+
+
+		<joined-subclass name="datos.Tradicional"
+			table="Tradicional">
+			<key column="idTradicional" />
+			<property column="cantBancos" name="cantBancos" type="int" />
+			<property column="pizarron" name="pizarron" type="char" />
+			<property column="tieneProyector" name="tieneProyector"
+				type="boolean" />
+		</joined-subclass>
+		
+		<joined-subclass name="datos.Laboratorio"
+			table="Laboratorio">
+			<key column="idLaboratorio" />
+			<property column="cantSillas" name="cantSillas" type="int" />
+			<property column="cantPC" name="cantPC" type="int" />
+		</joined-subclass>
+
+	</class>
+</hibernate-mapping>
