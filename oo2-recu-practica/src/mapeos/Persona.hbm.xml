@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+<class name="datos.Persona" table="Persona">
+    <id column="idPersona" name="idPersona">
+      <generator class="identity"/>
+    </id>
+     <property column="documento" name="documento" type="long"/>
+    <property column="fechaNacimiento" name="fechaNacimiento" type="LocalDate"/>
+    <property column="tieneComorbilidad" name="tieneComorbilidad" type="boolean"/>
+</class>    
+</hibernate-mapping>
