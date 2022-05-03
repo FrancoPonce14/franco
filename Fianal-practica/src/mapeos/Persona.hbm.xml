@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<hibernate-mapping>
+
+	<class name="datos.Persona" table="persona">
+		<id column="idPersona" name="id">
+			<generator class="identity" />
+		</id>
+		
+		<property column="nroCuenta" name="nroCuenta" type="string" />
+		
+		<joined-subclass  name = "datos.Abonado" table="abonado">
+		<key column="idAbonado"/>
+		<property column="apellido" name="apellido" type="string"/>
+		<property column="nombres" name="nombres" type="string"/>
+		<property column="dni" name="dni" type="long"/>
+		</joined-subclass>
+		
+		<joined-subclass  name = "datos.Empresa" table="empresa">
+		<key column="idEmpresa"/>
+		<property column="razonSocial" name="razonSocial" type="string"/>
+		</joined-subclass>
+	</class>
+		
+</hibernate-mapping>
